@@ -14,8 +14,11 @@ function loadDogFood(){
 		brand.types.forEach(function(type){
 			dogDOM +="<div class ='type'>" +type.type;
 			type.volumes.forEach(function(volume){
-				dogDOM += "<div class='volume-name'>" + volume.name + "</div>";
-				dogDOM += "<div class='price'>" + volume.price + "</div>";
+				
+				dogDOM += "<div class='typeandprice'>" + volume.name+ ":";
+				dogDOM += volume.price + "</div>";
+				
+
 			});
 			dogDOM+="</div>";
 		});
@@ -30,5 +33,23 @@ catFoodRequest.open("GET", "catfood.json");
 catFoodRequest.send();
 
 function loadCatFood(){
+	var catDoc = document.getElementById("catfoodlist");
+	var catDOM="";
+	var catFood = JSON.parse(event.target.responseText);
 	
+	
+	catFood.cat_brands.forEach(function(brand){
+		catDOM+="<div class='brandName'>"+brand.name;
+		brand.breeds.forEach(function(breed){
+			catDOM +="<div class ='breed'>" +breed.breed;
+			breed.volumes.forEach(function(volume){
+				catDOM += "<div class='typeandprice'>" + volume.name + ":";
+				catDOM +=  volume.price + "</div>";
+			});
+			catDOM+="</div>";
+		});
+		catDOM+="</div>";
+		catDoc.innerHTML =catDOM;
+	});
+
 }
