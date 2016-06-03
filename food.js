@@ -33,6 +33,7 @@ catFoodRequest.open("GET", "catfood.json");
 catFoodRequest.send();
 
 function loadCatFood(){
+	
 	var catDoc = document.getElementById("catfoodlist");
 	var catDOM="";
 	var catFood = JSON.parse(event.target.responseText);
