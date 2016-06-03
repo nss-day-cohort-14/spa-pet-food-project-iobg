@@ -23,3 +23,12 @@ function loadDogFood(){
 		dogDoc.innerHTML =dogDOM;
 	});
 }
+
+var catFoodRequest= new XMLHttpRequest();
+catFoodRequest.addEventListener("load", loadCatFood);
+catFoodRequest.open("GET", "catfood.json");
+catFoodRequest.send();
+
+function loadCatFood(){
+	
+}
