@@ -1,7 +1,8 @@
+(function(){
 var dogFoodRequest= new XMLHttpRequest();
 dogFoodRequest.addEventListener("load", loadDogFood);
 dogFoodRequest.open("GET", "dogfood.json");
-dogFoodRequest.send();
+dogFoodRequest.send();})();
 
 function loadDogFood(){
 	var dogDoc = document.getElementById("dogfoodlist");
@@ -14,7 +15,6 @@ function loadDogFood(){
 		brand.types.forEach(function(type){
 			dogDOM +="<div class ='type'>" +type.type;
 			type.volumes.forEach(function(volume){
-				
 				dogDOM += "<div class='typeandprice'>" + volume.name+ ":";
 				dogDOM += volume.price + "</div>";
 				
@@ -26,11 +26,11 @@ function loadDogFood(){
 		dogDoc.innerHTML =dogDOM;
 	});
 }
-
+(function(){
 var catFoodRequest= new XMLHttpRequest();
 catFoodRequest.addEventListener("load", loadCatFood);
 catFoodRequest.open("GET", "catfood.json");
-catFoodRequest.send();
+catFoodRequest.send();})();
 
 function loadCatFood(){
 	
